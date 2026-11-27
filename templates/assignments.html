@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Assignments{% endblock %}{% block content %}<div class="card"><h1>Submit an assignment</h1>
+<form method="post" enctype="multipart/form-data" novalidate><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>Course <select name="course_id">{% for c in courses %}<option value="{{ c.id }}">{{ c.code }} {{ c.title }}</option>{% endfor %}</select></label>
+<label>File ({{ exts|join(', ') }}, max 5 MB) <input type="file" name="file" required></label><p><button class="btn" type="submit">Upload</button></p></form></div>
+<div class="card"><h2>My submissions</h2><table><tr><th>Course</th><th>File</th><th>Size</th><th>Submitted</th></tr>{% for s in mine %}<tr><td>{{ s.code }}</td><td><a href="{{ url_for('download', sub_id=s.id) }}">{{ s.original_name }}</a></td><td>{{ s.size }}</td><td>{{ s.submitted_at }}</td></tr>{% else %}<tr><td colspan="4">Nothing submitted yet.</td></tr>{% endfor %}</table></div>{% endblock %}

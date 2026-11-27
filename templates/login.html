@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Sign in{% endblock %}{% block content %}<div class="card"><h1>Sign in</h1>
+<form method="post" novalidate><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>Username <input name="username" autocomplete="username" maxlength="40" required autofocus></label>
+<label>Password <input type="password" name="password" autocomplete="current-password" maxlength="128" required></label>
+{% if captcha %}<label>{{ captcha }} <input name="captcha" inputmode="numeric" maxlength="3" autocomplete="off" required></label>{% endif %}
+<p><button class="btn" type="submit">Sign in</button></p></form></div>{% endblock %}

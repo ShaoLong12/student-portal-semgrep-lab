@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}Messages{% endblock %}{% block content %}<div class="card"><h1>{{ 'Inbox' if g.user.role == 'student' else 'Sent messages' }}</h1>
+<table><tr><th>{{ 'From' if g.user.role == 'student' else 'To' }}</th><th>Subject</th><th>Sent</th></tr>{% for m in rows %}<tr><td>{{ m.full_name }}</td><td><a href="{{ url_for('message_view', msg_id=m.id) }}">{{ m.subject }}</a></td><td>{{ m.sent_at }}</td></tr>{% else %}<tr><td colspan="3">No messages.</td></tr>{% endfor %}</table></div>{% endblock %}

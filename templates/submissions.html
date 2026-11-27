@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}Submissions{% endblock %}{% block content %}<div class="card"><h1>Submissions to my courses</h1>
+<table><tr><th>Course</th><th>Student</th><th>File</th><th>Size</th><th>Submitted</th></tr>{% for s in rows %}<tr><td>{{ s.code }}</td><td>{{ s.full_name }}</td><td><a href="{{ url_for('download', sub_id=s.id) }}">{{ s.original_name }}</a></td><td>{{ s.size }}</td><td>{{ s.submitted_at }}</td></tr>{% else %}<tr><td colspan="5">No submissions.</td></tr>{% endfor %}</table></div>{% endblock %}

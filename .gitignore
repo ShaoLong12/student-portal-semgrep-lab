@@ -1,0 +1,10 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+instance/
+uploads/
+uploads_secure/
+semgrep-results.json
+semgrep-results.txt
+semgrep-templates.json

@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}New message{% endblock %}{% block content %}<div class="card"><h1>Message a student</h1>
+<form method="post" novalidate><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>To <select name="recipient_id">{% for s in students %}<option value="{{ s.id }}">{{ s.full_name }}</option>{% endfor %}</select></label>
+<label>Subject <input name="subject" maxlength="120" required></label><label>Message <textarea name="body" rows="6" maxlength="2000" required></textarea></label>
+<p><button class="btn" type="submit">Send</button></p></form></div>{% endblock %}

@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block title %}Message{% endblock %}{% block content %}<div class="card"><h1>{{ m.subject }}</h1>
+<p class="muted">From {{ m.sender_name }} to {{ m.recipient_name }} on {{ m.sent_at }}</p><div class="body">{{ m.body|linkify }}</div></div>{% endblock %}
